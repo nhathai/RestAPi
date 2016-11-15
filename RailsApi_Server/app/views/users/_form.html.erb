@@ -1,0 +1,72 @@
+<%= form_for(@user, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :firstname, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :firstname, class: "form-control", placeholder: "Enter Firstname" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :lastname, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :lastname, class: "form-control", placeholder: "Enter Lastname" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :username, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :username, class: "form-control", placeholder: "Enter username" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :passord, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :passord, class: "form-control" , placeholder: "Enter password" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "col-sm-2 control-label"%>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: "form-control" , placeholder: "Enter email"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :birthday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :birthday, class: "form-control", placeholder: "dd/mm/yyyy" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.radio_button(:gender, 'Nam', :class => 'form-control radio-inline') %> Nam
+      <%= f.radio_button(:gender, 'Nữ', :class => 'form-control radio-inline') %> Nữ
+      <!--<%= f.text_field :gender, class: "form-control" %>-->
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.radio_button(:status, 'Hoạt động', :class => 'form-control radio-inline') %> Hoạt động
+      <%= f.radio_button(:status, 'Bị khóa', :class => 'form-control radio-inline') %> Bị khóa
+      <!--<%= f.text_field :status, class: "form-control" %>-->
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

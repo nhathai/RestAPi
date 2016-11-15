@@ -1,0 +1,49 @@
+<%if @users.present? %>
+
+<div class="container">
+
+  <h2>Danh sách nhân viên</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Email</th>
+      <th>Birthday</th>
+      <th>Gender</th>
+      <th>Status</th>
+      <th colspan="2">
+        <%= link_to new_user_path, class: "btn btn-success" , type: "button"  do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            Thêm mới
+        <% end %>
+      </th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <%@users.each do |u|%>
+        <tr>
+          <td><%= u[:id] %></td>
+          <td><%= u[:firstname] %></td>
+          <td><%= u[:lastname] %></td>
+          <td><%= u[:username] %></td>
+          <td><%= u[:passord] %></td>
+          <td><%= u[:email] %></td>
+          <td><%= u[:birthday] %></td>
+          <td><%= u[:gender] %></td>
+          <td><%= u[:status] %></td>
+          <td><%= link_to 'Edit', edit_user_path(u[:id]) , class: "btn btn-sm btn-warning" , type: "button" %></td>
+          <td><%= link_to 'Destroy', user_path(u[:id]), class: "btn btn-sm btn-danger" , type: "button", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<% else%>
+    <p>No User is Found</p>
+<%end%>

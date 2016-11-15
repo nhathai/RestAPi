@@ -1,0 +1,59 @@
+<div class="page-header">
+  <%= link_to users_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <h1>Thêm nhân viên</h1>
+</div>
+
+<%= form_tag users_path, :method => :post do %>
+
+
+    <div class="form-group">
+
+      <label  class="col-sm-2 control-label">First name</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter Firstname" <%= text_field_tag :firstname %><br/>
+      </div>
+
+      <label  class="col-sm-2 control-label">Last name</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter Lastname" <%= text_field_tag :lastname %><br/>
+      </div>
+
+      <label  class="col-sm-2 control-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter username" <%= text_field_tag :username %><br/>
+      </div>
+
+      <label  class="col-sm-2 control-label">Password</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter password" <%= text_field_tag :passord %><br/>
+      </div>
+
+      <label  class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter email" <%= text_field_tag :email %><br/>
+      </div>
+
+      <label  class="col-sm-2 control-label">Birthday</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter dd/mm/yyyy" <%= text_field_tag :birthday %><br/>
+      </div>
+
+      <label  class="col-sm-2 control-label">Gender</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter gender" <%= text_field_tag :gender %><br/>
+      </div>
+      <label  class="col-sm-2 control-label">Status</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder= "Enter status" <%= text_field_tag :status %><br/>
+      </div>
+
+
+
+
+    <%=submit_tag "save"%>
+    </div>
+<%end%>
+
