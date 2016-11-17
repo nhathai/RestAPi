@@ -21,3 +21,7 @@
 $(function() {
     $("#user_birthday").datepicker();
 });
+
+$(function() {
+    $('.date-field').datepicker();
+});

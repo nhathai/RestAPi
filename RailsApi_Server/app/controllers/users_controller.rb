@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   skip_before_filter :authenticate_user!
 
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # before_filter :fetch_user, :except => [:index, :create]
   #
@@ -15,10 +15,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @users }
+    # end
   end
 
   # GET /users/1
@@ -46,8 +46,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created }
-        #format.json { render :show, status: :created, location: @user }
+        #format.json { render json: @user, status: :created }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
